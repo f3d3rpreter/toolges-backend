@@ -11,8 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Conectar a la base de datos SQLite (archivo)
-const db = new sqlite3.Database('./database.db');
-
+const db = new sqlite3.Database(process.env.DATABASE_PATH || './database.db');
 // Crear tablas si no existen
 db.serialize(() => {
   // Inventario
